@@ -89,6 +89,8 @@ html {
   --color-shade-1: #cf711f;
   --color-tint-1: #fdf2e9;
   --color-tint-2: #fae5d3;
+
+  --color-grey-2: #6f6f6f; lightest grey on tint-1
 }
 
 body {
@@ -177,6 +179,10 @@ body {
   margin-right: 1.6rem !important;
 }
 
+.margin-bottom-md {
+  margin-bottom: 4.8em !important;
+}
+
 /* ---- BUTTONS --------------------------------------- */
 
 .btn:link,
@@ -190,7 +196,7 @@ body {
   border-radius: 9px;
 
   /* Put transition to the original "state" */
-  transition: background-color 0.3s;
+  transition: all 0.3s;
 }
 
 .btn--full:link,
@@ -220,4 +226,24 @@ body {
 
 strong {
   font-weight: 600;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: var(--color-main);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: all 0.3;
+}
+
+.link:hover,
+.link:active {
+  color: var(--color-shade-1);
+  border-bottom: 1px solid transparent;
 }
