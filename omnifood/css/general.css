@@ -35,10 +35,16 @@ Paragraph default: 1.6
 
 -=-=-= Shades =-=-=-
 #cf711f
+#eb984e
+#45260a
 
 -=-=-= Accents =-=-=-
+#ffd43b
 
 -=-=-= Greys =-=-=-
+#888
+#767676 (ligtest grey allowed on white)
+#6f6f6f (lightest grey allowed on #fdf2e9)
 #555
 #333;
 
@@ -46,6 +52,7 @@ Paragraph default: 1.6
 >>> 05 SHADOWS ----------------------------------------------------------
 -------------------------------------------------------------------------
 
+0px 2.4px 4.8rem rgba(0, 0, 0, 0.075);
 
 -------------------------------------------------------------------------
 >>> 06 BORDER-RADIUS ----------------------------------------------------
@@ -78,6 +85,13 @@ Paragraph default: 1.6
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: none;
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+  box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
+}
+
 html {
   /* We want to set the initial font-size to 10px so that the rem calculations would be easier */
   /* But we also want to respect the user's choice of font size and scale according to that. */
@@ -87,10 +101,14 @@ html {
   font-size: 62.5%;
   --color-main: #e67e22;
   --color-shade-1: #cf711f;
+  --color-shade-2: #eb984e;
+  --color-shade-3: #45260e;
   --color-tint-1: #fdf2e9;
   --color-tint-2: #fae5d3;
+  --color-accent: #ffd43b;
 
-  --color-grey-2: #6f6f6f; lightest grey on tint-1
+  /* lightest grey on tint-1 */
+  --color-grey-2: #6f6f6f;
 }
 
 body {
@@ -120,6 +138,10 @@ body {
   column-gap: 6.4rem;
 }
 
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
 .grid--2-cols {
   grid-template-columns: repeat(2, 1fr);
 }
@@ -130,6 +152,10 @@ body {
 
 .grid--4-cols {
   grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .grid--center-vertically {
@@ -185,6 +211,7 @@ body {
 
 /* ---- BUTTONS --------------------------------------- */
 
+.btn,
 .btn:link,
 .btn:visited {
   display: inline-block;
@@ -194,6 +221,11 @@ body {
   font-weight: 600;
   padding: 1.6rem 3.2rem;
   border-radius: 9px;
+
+  /* Only necessary for button */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 
   /* Put transition to the original "state" */
   transition: all 0.3s;
@@ -223,6 +255,41 @@ body {
   /* border: 3px solid white; */
   box-shadow: inset 0 0 0 3px #fff;
 }
+
+.btn--form {
+  background-color: var(--color-shade-3);
+  color: var(--color-tint-1);
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
+
+/* LIST */
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--color-main);
+}
+
+/* HELPERS */
 
 strong {
   font-weight: 600;
