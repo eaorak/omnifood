@@ -99,6 +99,8 @@ html {
 
   /* lightest grey on tint-1 */
   --color-grey-2: #6f6f6f;
+  /* Does NOT work on Safari */
+  /* scroll-behavior: smooth; */
 }
 
 body {
